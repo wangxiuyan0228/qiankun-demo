@@ -30,7 +30,7 @@ registerMicroApps(
       name: 'vue',
       entry: '//localhost:7101',
       container: '#subapp-viewport',
-      loader,
+      loader, //loading 状态发生变化时会调用的方法。
       activeRule: '/vue',
     },
     {
@@ -72,6 +72,8 @@ setGlobalState({
     name: 'master',
   },
 });
+
+window.setGlobalState = setGlobalState
 
 /**
  * Step3 设置默认进入的子应用

@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    全局状态：{{ globalStataus }}
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
@@ -7,7 +8,19 @@
     <router-view />
   </div>
 </template>
-
+<script>
+import {mapGetters} from 'vuex'
+export default {
+  name: "",
+  components: {},
+  data() {
+    return {};
+  },
+  computed: {
+    ...mapGetters(["globalStataus"]),
+  },
+};
+</script>
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

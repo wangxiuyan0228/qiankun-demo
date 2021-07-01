@@ -13,6 +13,7 @@
         <el-menu-item index="/vue">vue</el-menu-item>
         <el-menu-item index="/purehtml">purehtml</el-menu-item>
       </el-menu>
+      <el-button @click="refreshToken">更新全局状态</el-button>
     </el-header>
     <el-main id="subapp-container">
       <div id="subapp-container">
@@ -37,6 +38,14 @@ export default {
   methods: {
     handleSelect(key) {
       this.$router.push(key);
+    },
+    refreshToken() {
+       window.setGlobalState({
+        ignore: "master",
+        user: {
+          name: "master"
+        }
+      });
     }
   }
 };
@@ -50,7 +59,13 @@ export default {
   color: #2c3e50;
   margin: 0;
 }
-.el-header{
+.el-header {
   background: #545c64;
+}
+.el-button{
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  z-index: 1;
 }
 </style>
